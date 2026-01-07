@@ -1,12 +1,12 @@
-from enum import unique
-
-from sqlalchemy import Column, Integer, String, true
+from sqlalchemy import Integer, String
+from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base
 
 
 class User(Base):
     __tablename__ = "users"
-    id = Column(Integer, primary_key=True)
-    email = Column(String, unique=True, nullable=True)
-    password = Column(String, nullable=False)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    email: Mapped[String] = mapped_column(String(255), unique=True, nullable=False)
+    password: Mapped[String] = mapped_column(String(255), nullable=False)

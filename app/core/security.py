@@ -9,10 +9,9 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from sqlalchemy.orm import Session
-from sqlalchemy.orm.descriptor_props import DescriptorProperty
 
 from app.core.config import settings
-from app.db.session import SessionLocal, get_db
+from app.db.session import get_db
 from app.repositories.user_repo import UserRepository
 
 # =====argon2 password hande=====
